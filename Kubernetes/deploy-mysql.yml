@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+spec:
+  selector:
+    matchLabels:
+      role: db
+      app: python
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: db
+        app: python
+    spec:
+      # MySQL Container
+      containers:
+      - name: app-mysql
+        image: mysql
+        # Environment variables
+        env:
+        - name: MYSQL_DATABASE
+          value: login
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-root-password
+              key: password
+        # MySQL Port
+        ports:
+        - containerPort: 3306
+        # Link the Persistent Volume
+        volumeMounts:
+        - name: mysql-pv
+          mountPath: /var/lib/mysql
+      # Link the Persisten Volume Claim
+      volumes:
+      - name: mysql-pv
+        persistentVolumeClaim:
+          claimName: mysql-pvc
+
+---
+# ClusterIP Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    role: db
