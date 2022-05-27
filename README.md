@@ -18,3 +18,6 @@ This app can be deployed in Docker using the `docker-compose.yml` file. Before r
 
 ### Kubernetes
 This repository includes the deployment YAML files to run the application in a Kubernetes Cluster.
+- `kubectl apply -f volume-mysql.yml`
+- `kubectl apply -f deploy-mysql.yml`
+- `kubectl apply -f deploy-python.yml`
