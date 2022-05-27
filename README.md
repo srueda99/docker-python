@@ -5,7 +5,7 @@ This app is a login website built on Flask as a Backend, HTML and CSS as a Front
 
 ## Infrastructure
 ### Local
-You can run this app in your machine with the command `python main.py` but you will need to have python installed and provide the MySQL Database. Also, tou will need to create a **.env** file with the following env variables:
+You can run this app in your machine with the command `python main.py` but you will need to have python installed and provide the MySQL Database. Also, you will need to create a **.env** file with the following env variables:
 - **PORT**
 - **DB_HOST**
 - **DB_USER**
