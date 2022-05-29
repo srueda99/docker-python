@@ -1,7 +1,13 @@
 # Login page made in Python
 
 ## Overview
-This app is a login website built on Flask as a Backend, HTML and CSS as a Frontend and MySQL as Database. You can create users, delete users or reset passwords of the users but first you need to log in with an existing user stored in the Database. 
+This app is a login website built on Flask as a Backend, HTML and CSS as a Frontend and MySQL as Database. You can create users, delete users or reset passwords of the users but first you need to log in with an existing user stored in the Database.
+
+```
+Use these credentials to log in the page for the first time:
+- Username: adm
+- Password: adm
+```
 
 ## Infrastructure
 ### Local
