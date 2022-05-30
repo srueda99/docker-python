@@ -11,7 +11,7 @@ Use these credentials to log in the page for the first time:
 
 ## Infrastructure
 ### Local
-You can run this app in your machine with the command `python main.py` but you will need to have python installed and provide the MySQL Database. Also, you will need to create a [**.env**] file with the following env variables:
+You can run this app in your machine with the command `python main.py` but you will need python installed and provide the MySQL Database. Also, you will need to create a [**.env**] file with the following env variables:
 - **PORT**
 - **DB_HOST**
 - **DB_USER**
