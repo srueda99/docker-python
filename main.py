@@ -86,6 +86,9 @@ def list():
         if query:
             flash('Users listed')
             return render_template('management.html', users = query)
+        else:
+            flash('No user has been created yet')
+            return render_template('management.html')
 
 # Running the service
 if __name__ == '__main__':
