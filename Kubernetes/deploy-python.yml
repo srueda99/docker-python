@@ -17,7 +17,7 @@ spec:
       # Python container
       containers:
       - name: app-node
-        image: srueda99/python-login:v2
+        image: srueda99/python-login:v3
         # Environment variables
         env:
         - name: DB_HOST

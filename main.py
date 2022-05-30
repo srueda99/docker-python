@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 from dotenv import load_dotenv
 import os
-#load_dotenv()
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -31,9 +31,11 @@ def login():
         usernm = request.form['username']
         pssword = request.form['password']
         dbconn = database.connection.cursor()
+        dbconn.execute('CREATE TABLE IF NOT EXISTS users(id INT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(15), password VARCHAR(15))')
+        dbconn.execute('INSERT IGNORE INTO users VALUES(0, "admin", "admin")')
         dbconn.execute('SELECT * FROM users WHERE username = %s AND password = %s LIMIT 1', [usernm, pssword])
         query = dbconn.fetchall()
-        if query or (usernm == 'adm' and pssword == 'adm'):
+        if query:
             return redirect(url_for('Management'))
         else:
             flash('User not found')

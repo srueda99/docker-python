@@ -5,8 +5,8 @@ This app is a login website built on Flask as a Backend, HTML and CSS as a Front
 
 ```
 Use these credentials to log in the page for the first time:
-- Username: adm
-- Password: adm
+- Username: admin
+- Password: admin
 ```
 
 ## Infrastructure
@@ -16,10 +16,10 @@ You can run this app in your machine with the command `python main.py` but you w
 - **DB_HOST**
 - **DB_USER**
 - **DB_PASSWORD**
-- **DB_SCHEMA**\
+- **DB_SCHEMA**
 
 ### Docker
-This app can be deployed in Docker using the `docker-compose.yml` file. Before running the docker-compose, you will need to create a Docker volume for the MySQL container:
+This application can be deployed in Docker using the `docker-compose.yml` file. Before running the docker-compose, you will need to create a Docker volume for the MySQL container:
 - `docker volume create db-mysql`
 
 ### Kubernetes
@@ -27,3 +27,9 @@ This repository includes the deployment YAML files to run the application in a K
 - `kubectl apply -f volume-mysql.yml`
 - `kubectl apply -f deploy-mysql.yml`
 - `kubectl apply -f deploy-python.yml`
+
+**Don't forget to create the secret named `mysql-root-password` with the key `password`, this will be the password for the MySQL Database.**
+
+_Example:_
+
+`kubectl create secret generic mysql-root-password --from-literal=password=toor`
